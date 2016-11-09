@@ -7,6 +7,5 @@ ADD changeJGroups.xsl /opt/jboss/keycloak/
 RUN java -jar /usr/share/java/saxon.jar -s:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml -xsl:/opt/jboss/keycloak/changeJGroups.xsl -o:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml; rm /opt/jboss/keycloak/changeJGroups.xsl
 
 ADD docker-entrypoint.sh /opt/jboss/
-RUN chmod +x /opt/jboss/docker-entrypoint.sh
 
 CMD ["-b", "0.0.0.0", "--server-config", "standalone-ha.xml", "-Djboss.node.name=$HOSTNAME", "-Djgroups.bind_addr=global"]
