@@ -6,5 +6,5 @@ fi
 
 export EXTERNAL_HOST_IP=$(curl -s 169.254.169.254/latest/meta-data/local-ipv4)
 
-exec /opt/jboss/keycloak/bin/standalone.sh $@
+exec /opt/jboss/keycloak/bin/standalone.sh -b $HOSTNAME -Djboss.node.name=$HOSTNAME -Djgroups.bind_addr=global $@
 exit $?

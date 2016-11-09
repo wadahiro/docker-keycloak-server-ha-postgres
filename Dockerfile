@@ -8,4 +8,4 @@ RUN java -jar /usr/share/java/saxon.jar -s:/opt/jboss/keycloak/standalone/config
 
 ADD docker-entrypoint.sh /opt/jboss/
 
-CMD ["sh", "-c", "-b", "$HOSTNAME", "--server-config", "standalone-ha.xml", "-Djboss.node.name=$HOSTNAME", "-Djgroups.bind_addr=global"]
+CMD ["--server-config", "standalone-ha.xml"]
